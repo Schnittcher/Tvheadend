@@ -1,0 +1,32 @@
+{
+    "translations": {
+        "de": {
+            "Name": "Name",
+            "Description": "Beschreibung",
+            "Server": "Server",
+            "DVR": "DVR",
+            "EPG": "EPG",
+            "Tuners": "Tuner",
+            "All tuners: state, signal, busy and a list tile": "Alle Tuner: Zustand, Signal, Belegung und eine Listen-Kachel",
+            "Recording rules": "Aufnahmeregeln",
+            "EPG tile": "EPG-Kachel",
+            "Program guide as a tile for the visualization": "Programmführer als Kachel für die Visualisierung",
+            "Series and time recordings: create, edit, switch and delete": "Serien- und Zeitaufnahmen: anlegen, bearbeiten, schalten und löschen",
+            "Streaming": "Streaming",
+            "Diagnostics": "Diagnose",
+            "Networks": "Netzwerke",
+            "Network": "Netzwerk",
+            "Channels": "Kanäle",
+            "Muxes": "Muxe",
+            "Services": "Services",
+            "Who is watching: streams and connected clients": "Wer schaut: Streams und verbundene Clients",
+            "Server log problems and EPG grabbers": "Probleme im Serverlog und EPG-Grabber",
+            "Channel management: enable, disable and rename": "Kanalverwaltung: aktivieren, deaktivieren und umbenennen",
+            "Series recording": "Serienaufnahme",
+            "Time recording": "Zeitaufnahme",
+            "Status, connections, subscriptions, tuners and disk space": "Status, Verbindungen, Subscriptions, Tuner und Speicherplatz",
+            "Recordings: scheduled, running, finished and failed": "Aufnahmen: geplant, laufend, fertig und fehlgeschlagen",
+            "On air and next for chosen channels, search, recording from the program guide": "Läuft jetzt und als Nächstes für gewählte Kanäle, Suche, Aufnahme aus dem Programm"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "translations": {
+        "de": {
+            "Host": "Host",
+            "Port": "Port",
+            "Use SSL": "SSL verwenden",
+            "Username": "Benutzername",
+            "Password": "Passwort",
+            "Full sync interval": "Intervall für den Vollabgleich",
+            "seconds": "Sekunden",
+            "Not connected": "Nicht verbunden",
+            "Server": "Server",
+            "Administrator": "Administrator",
+            "Yes": "Ja",
+            "No": "Nein",
+            "Connect and sync": "Verbinden und abgleichen",
+            "Connected": "Verbunden",
+            "Inactive": "Inaktiv",
+            "Host is missing": "Host fehlt",
+            "Username or password is wrong": "Benutzername oder Passwort ist falsch",
+            "Server is not reachable": "Server ist nicht erreichbar"
+        }
+    }
+}

@@ -2,8 +2,11 @@
     "id": "{6D9725D4-F2DC-4F44-9916-3881E1028FB0}",
     "author": "Kai Schnittcher",
     "name": "Tvheadend",
-    "url": "https://github.com/Schnittcher/IPS-Tvheadend",
-    "version": "1.9",
+    "url": "https://github.com/Schnittcher/Tvheadend",
+    "compatibility": {
+        "version": "9.0"
+    },
+    "version": "2.0",
     "build": 0,
     "date": 0
 }

@@ -1,0 +1,101 @@
+<div class="tvh" id="tvh">
+  <div class="off" id="off"></div>
+  <div class="top">
+    <div class="seg"><button class="btn" id="fAll"></button><button class="btn" id="fBusy"></button><button class="btn" id="fFree"></button></div>
+    <input class="search" id="q" type="text">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="list" id="list"></div>
+</div>
+<style>
+.tvh .meters{flex:none;display:flex;gap:1em;align-items:center;min-width:12em}
+.tvh .meter{flex:1;min-width:0}
+.tvh .meter .lbl{color:var(--text-sub);font-size:.8em;display:flex;justify-content:space-between;gap:.5em}
+.tvh .meter .bar{height:.35em;border-radius:.2em;background:var(--c-border);overflow:hidden;margin-top:.15em}
+.tvh .meter .bar div{height:100%;background:var(--ok)}
+.tvh .meter .bar div.mid{background:var(--warn)}
+.tvh .meter .bar div.low{background:var(--bad)}
+</style>
+<script>
+var S = {tuners: [], t: {}, filter: 'all', q: '', init: false};
+
+function toPercent(value, scale) {
+  if (scale === 1) { return value * 100 / 65535; }
+  if (scale === 2) { return Math.min(100, value / 1000 * 100 / 30); }
+  return null;
+}
+function fmtScaled(value, scale) {
+  if (scale === 1) { return Math.round(value * 100 / 65535) + ' %'; }
+  if (scale === 2) { return (value / 1000).toFixed(1) + ' dB'; }
+  return '-';
+}
+
+function meter(label, value, scale) {
+  var m = el('div', 'meter');
+  var l = el('div', 'lbl'); l.appendChild(el('span', '', label)); l.appendChild(el('span', '', fmtScaled(value, scale)));
+  m.appendChild(l);
+  var bar = el('div', 'bar'); var fill = el('div');
+  var p = toPercent(value, scale);
+  fill.style.width = (p === null ? 0 : Math.max(0, Math.min(100, p))) + '%';
+  if (p !== null && p < 35) { fill.className = 'low'; } else if (p !== null && p < 60) { fill.className = 'mid'; }
+  bar.appendChild(fill); m.appendChild(bar);
+  return m;
+}
+
+function visible() {
+  var q = S.q.toLowerCase();
+  return S.tuners.filter(function (x) {
+    if (S.filter === 'busy' && !x.b) { return false; }
+    if (S.filter === 'free' && (x.b || !x.en)) { return false; }
+    return !q || (x.n + ' ' + x.mux).toLowerCase().indexOf(q) !== -1;
+  });
+}
+
+function render() {
+  var list = document.getElementById('list');
+  var scroll = list.scrollTop;
+  list.innerHTML = '';
+  var busy = S.tuners.filter(function (x) { return x.b; }).length;
+  document.getElementById('count').textContent = busy + ' ' + S.t.of + ' ' + S.tuners.length + ' ' + S.t.busy.toLowerCase();
+  [['fAll', 'all'], ['fBusy', 'busy'], ['fFree', 'free']].forEach(function (p) { document.getElementById(p[0]).classList.toggle('sel', S.filter === p[1]); });
+  var rows = visible();
+  if (!rows.length) { list.appendChild(el('div', 'empty', S.tuners.length ? S.t.noMatch : S.t.empty)); return; }
+  rows.forEach(function (x) {
+    var item = el('div', 'item' + (x.b && x.en ? '' : ' dim'));
+    item.appendChild(el('div', 'dot ' + (x.b ? 'ok' : '')));
+    var info = el('div', 'info');
+    info.appendChild(el('div', 'nm', x.n));
+    var sub = !x.en ? [S.t.disabled] : x.b ? [x.mux, x.subs + ' ' + (x.subs === 1 ? S.t.stream : S.t.subs), Math.round(x.bps / 1000) + ' kbit/s'] : [S.t.idle];
+    info.appendChild(el('div', 'sub', sub.filter(Boolean).join(' | ')));
+    item.appendChild(info);
+    if (x.en && (x.ss || x.ns)) {
+      var meters = el('div', 'meters');
+      meters.appendChild(meter(S.t.signal, x.sig, x.ss));
+      meters.appendChild(meter(S.t.snr, x.snr, x.ns));
+      item.appendChild(meters);
+    }
+    list.appendChild(item);
+  });
+  list.scrollTop = scroll;
+}
+
+function handleMessage(json) {
+  var d = typeof json === 'string' ? JSON.parse(json) : json;
+  if (d.type === 'tuners') {
+    S.t = d.t; S.tuners = d.tuners;
+    document.getElementById('fAll').textContent = S.t.all;
+    document.getElementById('fBusy').textContent = S.t.busy;
+    document.getElementById('fFree').textContent = S.t.free;
+    document.getElementById('q').placeholder = S.t.search;
+    setOnline(d.online, S.t.offline);
+    if (!S.init) { S.init = true; var f = load('tuners_filter'); if (f === 'all' || f === 'busy' || f === 'free') { S.filter = f; } }
+    render();
+  }
+}
+
+[['fAll', 'all'], ['fBusy', 'busy'], ['fFree', 'free']].forEach(function (p) {
+  document.getElementById(p[0]).onclick = function () { S.filter = p[1]; save('tuners_filter', p[1]); render(); };
+});
+document.getElementById('q').oninput = function () { S.q = this.value; render(); };
+tvhFit('tvh');
+</script>

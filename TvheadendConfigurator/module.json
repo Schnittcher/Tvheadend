@@ -1,0 +1,18 @@
+{
+    "id": "{699F9970-9E6D-4A22-ACA9-669FCB031B3E}",
+    "name": "TvheadendConfigurator",
+    "type": 4,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Configurator"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHC",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

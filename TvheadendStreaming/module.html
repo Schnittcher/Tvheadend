@@ -1,0 +1,73 @@
+<div class="tvh" id="tvh">
+  <div class="off" id="off"></div>
+  <div class="top">
+    <div class="seg"><button class="btn" id="tS"></button><button class="btn" id="tC"></button></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="toast" id="toast"></div>
+</div>
+<script>
+var S = {t: {}, streams: [], clients: [], tab: 'streams', asking: null};
+
+function render() {
+  var list = document.getElementById('list');
+  list.innerHTML = '';
+  document.getElementById('tS').textContent = S.t.streams + ' (' + S.streams.length + ')';
+  document.getElementById('tC').textContent = S.t.clients + ' (' + S.clients.length + ')';
+  document.getElementById('tS').classList.toggle('sel', S.tab === 'streams');
+  document.getElementById('tC').classList.toggle('sel', S.tab === 'clients');
+  document.getElementById('count').textContent = '';
+  if (S.tab === 'streams') {
+    if (!S.streams.length) { list.appendChild(el('div', 'empty', S.t.noStreams)); return; }
+    S.streams.forEach(function (s) {
+      var item = el('div', 'item');
+      item.appendChild(el('div', 'dot ' + (s.errors > 0 ? 'warn' : 'ok')));
+      var info = el('div', 'info');
+      info.appendChild(el('div', 'nm', s.title));
+      info.appendChild(el('div', 'sub', [s.who, s.profile, s.state].filter(Boolean).join(' | ')));
+      item.appendChild(info);
+      var side = [];
+      if (s.start) { side.push(S.t.since + ' ' + fmtTime(s.start)); }
+      if (s.errors > 0) { side.push(s.errors + ' ' + S.t.errors); }
+      item.appendChild(el('div', 'side', side.join(' | ')));
+      list.appendChild(item);
+    });
+    return;
+  }
+  if (!S.clients.length) { list.appendChild(el('div', 'empty', S.t.noClients)); return; }
+  S.clients.forEach(function (c) {
+    var item = el('div', 'item');
+    var info = el('div', 'info');
+    info.appendChild(el('div', 'nm', (c.user || '-') + ' | ' + c.type));
+    info.appendChild(el('div', 'sub', c.peer + (c.started ? ' | ' + S.t.since + ' ' + fmtDate(c.started) : '')));
+    item.appendChild(info);
+    if (S.asking === c.id) {
+      var ask = el('div', 'ask'); ask.appendChild(el('span', '', S.t.confirm));
+      var yes = el('button', 'btn bad', S.t.yes); yes.onclick = function () { S.asking = null; requestAction('Cancel', JSON.stringify({id: c.id})); };
+      var no = el('button', 'btn', S.t.no); no.onclick = function () { S.asking = null; render(); };
+      ask.appendChild(yes); ask.appendChild(no); item.appendChild(ask);
+    } else {
+      var b = el('button', 'btn', S.t.disconnect); b.onclick = function () { S.asking = c.id; render(); };
+      item.appendChild(b);
+    }
+    list.appendChild(item);
+  });
+}
+
+function handleMessage(json) {
+  var d = typeof json === 'string' ? JSON.parse(json) : json;
+  if (d.type === 'streams') {
+    S.t = d.t; S.streams = d.streams; S.clients = d.clients;
+    setOnline(d.online, S.t.offline);
+    if (!S.init) { S.init = true; var tab = load('streaming_tab'); if (tab === 'streams' || tab === 'clients') { S.tab = tab; } }
+    render();
+  } else if (d.type === 'result') {
+    toast(d.text, !d.ok);
+  }
+}
+
+document.getElementById('tS').onclick = function () { S.tab = 'streams'; save('streaming_tab', S.tab); render(); };
+document.getElementById('tC').onclick = function () { S.tab = 'clients'; save('streaming_tab', S.tab); render(); };
+tvhFit('tvh');
+</script>

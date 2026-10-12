@@ -1,0 +1,35 @@
+{
+    "translations": {
+        "de": {
+            "Tuners": "Tuner",
+            "Enabled Tuners": "Aktive Tuner",
+            "Busy Tuners": "Belegte Tuner",
+            "Free Tuners": "Freie Tuner",
+            "Tuner List": "Tunerliste",
+            "Create variables for every tuner": "Variablen für jeden Tuner anlegen",
+            "Update interval": "Abfrageintervall",
+            "seconds": "Sekunden",
+            "Update": "Aktualisieren",
+            "Enabled": "Aktiv",
+            "Busy": "Belegt",
+            "Free": "Frei",
+            "Disabled": "Deaktiviert",
+            "Signal": "Signal",
+            "SNR": "SNR",
+            "Bitrate": "Bitrate",
+            "Yes": "Ja",
+            "No": "Nein",
+            "State": "Zustand",
+            "Mux": "Mux",
+            "All": "Alle",
+            "Search": "Suchen",
+            "of": "von",
+            "No tuners": "Keine Tuner",
+            "No matching tuners": "Keine passenden Tuner",
+            "Server not reachable": "Server nicht erreichbar",
+            "streams": "Streams",
+            "stream": "Stream",
+            "Tuners are enabled and disabled in Tvheadend (Configuration, DVB Inputs, TV Adapters).": "Tuner werden im Tvheadend aktiviert und deaktiviert (Konfiguration, DVB-Eingänge, TV-Adapter)."
+        }
+    }
+}

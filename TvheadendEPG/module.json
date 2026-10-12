@@ -1,0 +1,18 @@
+{
+    "id": "{5FA88A31-CE0D-4076-8F54-EF0AA125839C}",
+    "name": "TvheadendEPG",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend EPG"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHE",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

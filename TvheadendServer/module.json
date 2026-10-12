@@ -1,0 +1,18 @@
+{
+    "id": "{8E7DFBF3-54EC-41F0-82B8-B101A486BDD1}",
+    "name": "TvheadendServer",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Server"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHS",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

@@ -1,0 +1,18 @@
+{
+    "id": "{3BF20201-3FB1-4220-9EC9-D8EEC5423CD6}",
+    "name": "TvheadendChannels",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Channels"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHK",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

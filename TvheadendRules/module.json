@@ -1,0 +1,18 @@
+{
+    "id": "{C21A81FF-C441-4D03-8187-B647E5FB88C7}",
+    "name": "TvheadendRules",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Recording Rules"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHR",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

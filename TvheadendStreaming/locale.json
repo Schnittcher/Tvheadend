@@ -1,0 +1,32 @@
+{
+    "translations": {
+        "de": {
+            "Active Streams": "Aktive Streams",
+            "Connected Clients": "Verbundene Clients",
+            "Watching": "Schaut gerade",
+            "Streams": "Streams",
+            "Clients": "Clients",
+            "Channel": "Kanal",
+            "User": "Benutzer",
+            "Profile": "Profil",
+            "State": "Zustand",
+            "Start": "Start",
+            "Errors": "Fehler",
+            "Type": "Typ",
+            "Address": "Adresse",
+            "Connected since": "Verbunden seit",
+            "Nobody is watching": "Niemand schaut gerade",
+            "No clients connected": "Keine Clients verbunden",
+            "Disconnect": "Trennen",
+            "Disconnect this client?": "Diesen Client trennen?",
+            "Yes": "Ja",
+            "No": "Nein",
+            "Server not reachable": "Server nicht erreichbar",
+            "since": "seit",
+            "errors": "Fehler",
+            "Done": "Erledigt",
+            "Failed": "Fehlgeschlagen",
+            "Update": "Aktualisieren"
+        }
+    }
+}

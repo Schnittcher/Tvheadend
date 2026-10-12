@@ -1,0 +1,27 @@
+{
+    "translations": {
+        "de": {
+            "Channels": "Kanäle",
+            "Enabled Channels": "Aktive Kanäle",
+            "All": "Alle",
+            "Active": "Aktiv",
+            "Inactive": "Inaktiv",
+            "Search": "Suchen",
+            "of": "von",
+            "No channels": "Keine Kanäle",
+            "No matching channels": "Keine passenden Kanäle",
+            "Rename": "Umbenennen",
+            "Server not reachable": "Server nicht erreichbar",
+            "Done": "Erledigt",
+            "Failed": "Fehlgeschlagen",
+            "Channel \"%s\" not found": "Kanal \"%s\" nicht gefunden",
+            "Number": "Nummer",
+            "Name": "Name",
+            "Tags": "Tags",
+            "UUID": "UUID",
+            "Enabled": "Aktiv",
+            "Reload from server": "Vom Server neu laden",
+            "Update": "Aktualisieren"
+        }
+    }
+}

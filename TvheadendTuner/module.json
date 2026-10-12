@@ -1,0 +1,18 @@
+{
+    "id": "{6C6FB7AF-DD32-44F8-A83B-8B221CFE66B6}",
+    "name": "TvheadendTuner",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Tuner"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHT",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

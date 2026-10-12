@@ -1,0 +1,18 @@
+{
+    "id": "{F76121FD-C20B-41E0-925C-D7F65137C8C2}",
+    "name": "TvheadendStreaming",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Streaming"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHM",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

@@ -1,0 +1,16 @@
+{
+    "translations": {
+        "de": {
+            "On Air Overview": "Überblick: Jetzt im Programm",
+            "until": "bis",
+            "On Air": "Läuft jetzt",
+            "Next": "Als Nächstes",
+            "On Air until": "Läuft jetzt bis",
+            "Next from": "Als Nächstes ab",
+            "Watched channels": "Beobachtete Kanäle",
+            "No channels available (gateway not connected?)": "Keine Kanäle verfügbar (Gateway nicht verbunden?)",
+            "Update": "Aktualisieren",
+            "Channel": "Kanal"
+        }
+    }
+}
