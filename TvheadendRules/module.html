@@ -1,0 +1,74 @@
+<div class="tvh" id="tvh">
+  <div class="off" id="off"></div>
+  <div class="top">
+    <div class="seg"><button class="btn" id="fAll"></button><button class="btn" id="fOn"></button><button class="btn" id="fOff"></button></div>
+    <input class="search" id="q" type="text">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="toast" id="toast"></div>
+</div>
+<script>
+var S = {rules: [], t: {}, filter: 'all', q: '', asking: null, init: false};
+
+function visibleRules() {
+  var q = S.q.toLowerCase();
+  return S.rules.filter(function (r) {
+    if (S.filter === 'on' && !r.e) { return false; }
+    if (S.filter === 'off' && r.e) { return false; }
+    return !q || (r.n + ' ' + r.d).toLowerCase().indexOf(q) !== -1;
+  });
+}
+
+function render() {
+  var list = document.getElementById('list');
+  list.innerHTML = '';
+  var rules = visibleRules();
+  var active = S.rules.filter(function (r) { return r.e; }).length;
+  document.getElementById('count').textContent = active + ' ' + S.t.of + ' ' + S.rules.length + ' ' + S.t.active.toLowerCase();
+  ['All', 'On', 'Off'].forEach(function (k) { document.getElementById('f' + k).classList.toggle('sel', S.filter === k.toLowerCase()); });
+  if (!rules.length) { list.appendChild(el('div', 'empty', S.rules.length ? S.t.noMatch : S.t.empty)); return; }
+  rules.forEach(function (r) {
+    var item = el('div', 'item' + (r.e ? '' : ' dim'));
+    var sw = el('div', 'sw' + (r.e ? ' on' : ''));
+    sw.onclick = function () { r.e = !r.e; render(); requestAction('Toggle', JSON.stringify({uuid: r.u, enabled: r.e})); };
+    var info = el('div', 'info');
+    info.appendChild(el('div', 'nm', r.n));
+    info.appendChild(el('div', 'sub', r.d));
+    item.appendChild(sw); item.appendChild(info);
+    if (S.asking === r.u) {
+      var ask = el('div', 'ask'); ask.appendChild(el('span', '', S.t.confirm));
+      var yes = el('button', 'btn bad', S.t.yes); yes.onclick = function () { S.asking = null; S.rules = S.rules.filter(function (x) { return x.u !== r.u; }); render(); requestAction('Delete', JSON.stringify({uuid: r.u})); };
+      var no = el('button', 'btn', S.t.no); no.onclick = function () { S.asking = null; render(); };
+      ask.appendChild(yes); ask.appendChild(no); item.appendChild(ask);
+    } else {
+      var del = el('button', 'del'); del.innerHTML = TRASH; del.title = S.t['delete'];
+      del.onclick = function () { S.asking = r.u; render(); };
+      item.appendChild(del);
+    }
+    list.appendChild(item);
+  });
+}
+
+function handleMessage(json) {
+  var d = typeof json === 'string' ? JSON.parse(json) : json;
+  if (d.type === 'rules') {
+    S.t = d.t; S.rules = d.rules;
+    document.getElementById('fAll').textContent = S.t.all;
+    document.getElementById('fOn').textContent = S.t.active;
+    document.getElementById('fOff').textContent = S.t.inactive;
+    document.getElementById('q').placeholder = S.t.search;
+    setOnline(d.online, S.t.offline);
+    if (!S.init) { S.init = true; var f = load('rules_filter'); if (f === 'on' || f === 'off' || f === 'all') { S.filter = f; } }
+    render();
+  } else if (d.type === 'result') {
+    toast(d.text, !d.ok);
+  }
+}
+
+[['fAll', 'all'], ['fOn', 'on'], ['fOff', 'off']].forEach(function (p) {
+  document.getElementById(p[0]).onclick = function () { S.filter = p[1]; save('rules_filter', p[1]); render(); };
+});
+document.getElementById('q').oninput = function () { S.q = this.value; render(); };
+tvhFit('tvh');
+</script>

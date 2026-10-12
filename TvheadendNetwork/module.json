@@ -1,0 +1,18 @@
+{
+    "id": "{D65A0CC0-3EC0-4DF7-B4FA-E0C3B23ED5B5}",
+    "name": "TvheadendNetwork",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Network"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHN",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

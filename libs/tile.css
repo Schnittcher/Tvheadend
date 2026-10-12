@@ -1,0 +1,48 @@
+/* Gemeinsames Stylesheet der Tvheadend-Kacheln. Schrift (Poppins), Schriftgröße, Ränder und Farben setzt die
+   Visualisierung am body (standards/TILE_VISUALIZATION.md): hier wird nichts davon überschrieben. */
+*{box-sizing:border-box}
+html,body{overflow:hidden}
+.tvh *{margin:0;padding:0}
+:root{
+  --text:var(--content-color,#fff);
+  --text-sub:color-mix(in srgb,var(--content-color,#fff) 55%,transparent);
+  --c-border:color-mix(in srgb,var(--content-color,#fff) 14%,transparent);
+  --c-cell:color-mix(in srgb,var(--content-color,#fff) 7%,transparent);
+  --c-hover:color-mix(in srgb,var(--content-color,#fff) 16%,transparent);
+  --ok:#3fb950;--warn:#f0883e;--bad:#f85149;
+  --accent:var(--accent-color,#3b82f6);
+}
+.tvh{width:100%;height:100vh;position:relative;overflow:hidden;color:var(--text);display:flex;flex-direction:column;
+  font-family:inherit;font-size:inherit;user-select:none;-webkit-user-select:none}
+.tvh .off{color:var(--warn);margin-bottom:.4em;display:none}
+.tvh .top{flex:none;display:flex;gap:.6em;align-items:center;flex-wrap:wrap;margin-bottom:.6em}
+.tvh .seg{display:flex;gap:.3em}
+.tvh .btn{border:1px solid var(--c-border);background:var(--c-cell);color:var(--text);border-radius:.6em;padding:.35em .85em;font:inherit;cursor:pointer;outline:none}
+.tvh .btn:hover{background:var(--c-hover)}
+.tvh .btn.sel{border-color:var(--accent);color:var(--accent)}
+.tvh .btn.bad{border-color:var(--bad);color:var(--bad)}
+.tvh .search{flex:1;min-width:8em;border:1px solid var(--c-border);background:var(--c-cell);color:var(--text);border-radius:.6em;padding:.4em .7em;font:inherit;outline:none;user-select:text;-webkit-user-select:text}
+.tvh .count{color:var(--text-sub);white-space:nowrap}
+.tvh .list{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:.45em}
+.tvh .item{display:flex;align-items:center;gap:.9em;padding:.7em .9em;border-radius:.8em;background:var(--c-cell);border:1px solid var(--c-border)}
+.tvh .item.dim .info{opacity:.5}
+.tvh .info{flex:1;min-width:0}
+.tvh .info .nm{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tvh .info .sub{color:var(--text-sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:.15em;font-size:.92em}
+.tvh .side{flex:none;text-align:right;color:var(--text-sub);font-size:.92em;white-space:nowrap}
+.tvh .sw{flex:none;position:relative;width:2.9em;height:1.6em;border-radius:1em;background:var(--c-hover);cursor:pointer;transition:background .2s}
+.tvh .sw::after{content:"";position:absolute;top:.2em;left:.2em;width:1.2em;height:1.2em;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.4);transition:transform .2s}
+.tvh .sw.on{background:var(--ok)}
+.tvh .sw.on::after{transform:translateX(1.3em)}
+.tvh .del{flex:none;border:none;background:transparent;color:var(--text-sub);cursor:pointer;padding:.3em;border-radius:.5em;outline:none;display:flex}
+.tvh .del:hover{color:var(--bad);background:var(--c-hover)}
+.tvh .del svg{width:1.5em;height:1.5em}
+.tvh .ask{flex:none;display:flex;gap:.4em;align-items:center}
+.tvh .ask span{color:var(--bad);font-weight:700;margin-right:.2em}
+.tvh .dot{flex:none;width:.7em;height:.7em;border-radius:50%;background:var(--text-sub)}
+.tvh .dot.ok{background:var(--ok)}
+.tvh .dot.warn{background:var(--warn)}
+.tvh .dot.bad{background:var(--bad)}
+.tvh .empty{padding:2em 1em;color:var(--text-sub);text-align:center}
+.tvh .toast{position:absolute;left:50%;bottom:1em;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.5em 1em;border-radius:1em;display:none;z-index:6}
+.tvh .toast.bad{background:var(--bad)}

@@ -1,0 +1,24 @@
+{
+    "translations": {
+        "de": {
+            "Problem Lines": "Problemzeilen",
+            "Last Problem": "Letztes Problem",
+            "Last Problem - Time": "Letztes Problem - Zeit",
+            "Problems": "Probleme",
+            "EPG Grabbers": "EPG-Grabber",
+            "Next Over-the-air EPG Grab": "Nächster EPG-Abruf über die Luft",
+            "Next Internal EPG Grab": "Nächster interner EPG-Abruf",
+            "Next Mux Scan": "Nächster Mux-Scan",
+            "Enabled EPG grabbers": "Eingeschaltete EPG-Grabber",
+            "Time": "Zeit",
+            "Message": "Meldung",
+            "Keywords for problem lines (comma separated)": "Stichwörter für Problemzeilen (durch Komma getrennt)",
+            "Problem lines to keep": "Zu behaltende Problemzeilen",
+            "Write every log line to the debug output": "Jede Logzeile in die Debug-Ausgabe schreiben",
+            "Update": "Aktualisieren",
+            "Clear problems": "Probleme löschen",
+            "Start over-the-air EPG grab": "EPG-Abruf über die Luft starten",
+            "Run internal EPG grabbers": "Interne EPG-Grabber ausführen"
+        }
+    }
+}

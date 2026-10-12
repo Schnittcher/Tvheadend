@@ -1,0 +1,18 @@
+{
+    "id": "{AB14D903-E47E-4A40-98E5-81475E22F38D}",
+    "name": "TvheadendEPGTile",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend EPG Tile"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHV",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

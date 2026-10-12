@@ -1,0 +1,22 @@
+{
+    "translations": {
+        "de": {
+            "Enabled": "Aktiv",
+            "Muxes": "Muxe",
+            "Muxes - Scan OK": "Muxe - Scan ok",
+            "Muxes - Scan Failed": "Muxe - Scan fehlgeschlagen",
+            "Services": "Services",
+            "Mapped Channels": "Zugeordnete Kanäle",
+            "Scan Queue": "Scan-Warteschlange",
+            "Scanning": "Scan läuft",
+            "Last Scan": "Letzter Scan",
+            "Yes": "Ja",
+            "No": "Nein",
+            "Update": "Aktualisieren",
+            "Update interval": "Abfrageintervall",
+            "seconds": "Sekunden",
+            "Start scan": "Scan starten",
+            "Network UUID": "UUID des Netzwerks"
+        }
+    }
+}

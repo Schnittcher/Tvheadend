@@ -1,0 +1,18 @@
+{
+    "id": "{F250C594-0A6D-4569-853B-D49B4F13089E}",
+    "name": "TvheadendDiagnostics",
+    "type": 3,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Diagnostics"
+    ],
+    "parentRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHX",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

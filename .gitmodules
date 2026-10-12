@@ -1,4 +1,4 @@
 [submodule ".style"]
 	path = .style
-	url = https://github.com/Schnittcher/StylePHP
+	url = https://github.com/symcon/StylePHP
 	branch = master

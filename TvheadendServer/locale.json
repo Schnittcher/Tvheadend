@@ -1,0 +1,38 @@
+{
+    "translations": {
+        "de": {
+            "MAC address (Wake-on-LAN)": "MAC-Adresse (Wake-on-LAN)",
+            "Broadcast address of the network": "Broadcast-Adresse des Netzwerks",
+            "No sleep before the next activity": "Kein Ruhezustand vor der nächsten Aktivität",
+            "minutes": "Minuten",
+            "Update": "Aktualisieren",
+            "Wake up server": "Server aufwecken",
+            "MAC address or broadcast address is invalid": "MAC-Adresse oder Broadcast-Adresse ist ungültig",
+            "Online": "Online",
+            "Offline": "Offline",
+            "Version": "Version",
+            "Connections": "Verbindungen",
+            "Subscriptions": "Subscriptions",
+            "Subscription Infos": "Subscription-Infos",
+            "Tuners": "Tuner",
+            "Free Disk Space": "Freier Speicher",
+            "Used Disk Space": "Belegter Speicher",
+            "Total Disk Space": "Gesamtspeicher",
+            "Next Activity": "Nächste Aktivität",
+            "Sleep Allowed": "Ruhezustand erlaubt",
+            "Yes": "Ja",
+            "No": "Nein",
+            "Title": "Titel",
+            "Service": "Service",
+            "State": "Zustand",
+            "Start": "Start",
+            "Errors": "Fehler",
+            "Input": "Eingang",
+            "Mux": "Mux",
+            "Bitrate": "Bitrate",
+            "Signal": "Signal",
+            "SNR": "SNR",
+            "Uncorrected": "Unkorrigiert"
+        }
+    }
+}

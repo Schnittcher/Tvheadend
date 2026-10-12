@@ -1,0 +1,30 @@
+{
+    "translations": {
+        "de": {
+            "Default view": "Standardansicht",
+            "Visible hours in the timeline": "Sichtbare Stunden in der Zeitleiste",
+            "hours": "Stunden",
+            "Timeline": "Zeitleiste",
+            "List": "Liste",
+            "Now": "Jetzt",
+            "Next": "Als Nächstes",
+            "Record": "Aufnehmen",
+            "Record series": "Serie aufnehmen",
+            "Delete recording": "Aufnahme löschen",
+            "Stop recording": "Aufnahme stoppen",
+            "Close": "Schließen",
+            "Scheduled for recording": "Zur Aufnahme geplant",
+            "Recording now": "Wird aufgenommen",
+            "Recorded": "Aufgenommen",
+            "Recording profile": "Aufnahmeprofil",
+            "Default": "Standard",
+            "Server not reachable": "Server nicht erreichbar",
+            "No program data": "Keine Programmdaten",
+            "Loading...": "Lade...",
+            "Done": "Erledigt",
+            "Failed": "Fehlgeschlagen",
+            "No channels available": "Keine Kanäle verfügbar",
+            "until": "bis"
+        }
+    }
+}

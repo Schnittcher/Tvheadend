@@ -1,0 +1,21 @@
+{
+    "id": "{0191046B-C07D-4DF2-AD75-3BB47CEA3DA8}",
+    "name": "TvheadendGateway",
+    "type": 2,
+    "vendor": "Tvheadend",
+    "aliases": [
+        "Tvheadend Gateway"
+    ],
+    "parentRequirements": [
+        "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"
+    ],
+    "childRequirements": [
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "implemented": [
+        "{018EF6B5-AB94-40C6-AA53-46943E824ACF}",
+        "{A10900F3-F890-4A5F-A0C0-9CF9B2BC032B}"
+    ],
+    "prefix": "TVHG",
+    "url": "https://github.com/Schnittcher/Tvheadend"
+}

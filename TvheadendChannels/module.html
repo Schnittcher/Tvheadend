@@ -1,0 +1,88 @@
+<div class="tvh" id="tvh">
+  <div class="off" id="off"></div>
+  <div class="top">
+    <div class="seg"><button class="btn" id="fAll"></button><button class="btn" id="fOn"></button><button class="btn" id="fOff"></button></div>
+    <input class="search" id="q" type="text">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="toast" id="toast"></div>
+</div>
+<script>
+var S = {channels: [], t: {}, filter: 'all', q: '', editing: null, init: false};
+var PENCIL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
+
+function visible() {
+  var q = S.q.toLowerCase();
+  return S.channels.filter(function (c) {
+    if (S.filter === 'on' && !c.e) { return false; }
+    if (S.filter === 'off' && c.e) { return false; }
+    return !q || (c.n + ' ' + c.name + ' ' + c.tags).toLowerCase().indexOf(q) !== -1;
+  });
+}
+
+function commitRename(c, value) {
+  S.editing = null;
+  value = (value || '').trim();
+  if (value && value !== c.name) { c.name = value; requestAction('Rename', JSON.stringify({uuid: c.u, name: value})); }
+  render();
+}
+
+function render() {
+  var list = document.getElementById('list');
+  var scroll = list.scrollTop;
+  list.innerHTML = '';
+  var rows = visible();
+  var active = S.channels.filter(function (c) { return c.e; }).length;
+  document.getElementById('count').textContent = active + ' ' + S.t.of + ' ' + S.channels.length + ' ' + S.t.active.toLowerCase();
+  ['All', 'On', 'Off'].forEach(function (k) { document.getElementById('f' + k).classList.toggle('sel', S.filter === k.toLowerCase()); });
+  if (!rows.length) { list.appendChild(el('div', 'empty', S.channels.length ? S.t.noMatch : S.t.empty)); return; }
+  rows.forEach(function (c) {
+    var item = el('div', 'item' + (c.e ? '' : ' dim'));
+    var sw = el('div', 'sw' + (c.e ? ' on' : ''));
+    sw.onclick = function () { c.e = !c.e; render(); requestAction('Toggle', JSON.stringify({uuid: c.u, enabled: c.e})); };
+    item.appendChild(sw);
+    item.appendChild(el('div', 'side', c.n));
+    var info = el('div', 'info');
+    if (S.editing === c.u) {
+      var input = el('input', 'search'); input.type = 'text'; input.value = c.name;
+      input.onkeydown = function (ev) { if (ev.key === 'Enter') { commitRename(c, input.value); } else if (ev.key === 'Escape') { S.editing = null; render(); } };
+      input.onblur = function () { if (S.editing === c.u) { commitRename(c, input.value); } };
+      info.appendChild(input);
+      setTimeout(function () { input.focus(); input.select(); }, 0);
+    } else {
+      info.appendChild(el('div', 'nm', c.name));
+      if (c.tags) { info.appendChild(el('div', 'sub', c.tags)); }
+    }
+    item.appendChild(info);
+    var edit = el('button', 'del'); edit.innerHTML = PENCIL; edit.title = S.t.rename;
+    edit.onclick = function () { S.editing = c.u; render(); };
+    item.appendChild(edit);
+    list.appendChild(item);
+  });
+  list.scrollTop = scroll;
+}
+
+function handleMessage(json) {
+  var d = typeof json === 'string' ? JSON.parse(json) : json;
+  if (d.type === 'channels') {
+    if (S.editing) { return; }
+    S.t = d.t; S.channels = d.channels;
+    document.getElementById('fAll').textContent = S.t.all;
+    document.getElementById('fOn').textContent = S.t.active;
+    document.getElementById('fOff').textContent = S.t.inactive;
+    document.getElementById('q').placeholder = S.t.search;
+    setOnline(d.online, S.t.offline);
+    if (!S.init) { S.init = true; var f = load('channels_filter'); if (f === 'on' || f === 'off' || f === 'all') { S.filter = f; } }
+    render();
+  } else if (d.type === 'result') {
+    toast(d.text, !d.ok);
+  }
+}
+
+[['fAll', 'all'], ['fOn', 'on'], ['fOff', 'off']].forEach(function (p) {
+  document.getElementById(p[0]).onclick = function () { S.filter = p[1]; save('channels_filter', p[1]); render(); };
+});
+document.getElementById('q').oninput = function () { S.q = this.value; render(); };
+tvhFit('tvh');
+</script>
