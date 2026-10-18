@@ -30,8 +30,9 @@ class TvheadendEPGTile extends IPSModuleStrict
         //Kanalliste aus channel/grid, sortiert nach Kanalnummer: [{u, n, name, icon}].
         $this->RegisterAttributeString('Channels', '[]');
 
-        //Ab Symcon 9.1 zeigt die Kachel ihr HTML auch im Vollbild, davor nur in der normalen Kachel.
-        $this->SetVisualizationType(defined('INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN') ? INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN : INSTANCE_VISUALIZATION_TYPE_HTML);
+        //Ab Symcon 9.1 zeigt die Kachel ihr HTML auch im Vollbild, davor nur in der normalen Kachel. Die Konstanten für den
+        //Kachel-Typ gibt es erst ab 9.1, auf 9.0 fehlt auch INSTANCE_VISUALIZATION_TYPE_HTML, deshalb steht dafür der Wert 1.
+        $this->SetVisualizationType(defined('INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN') ? INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN : 1);
     }
 
     public function ApplyChanges(): void
