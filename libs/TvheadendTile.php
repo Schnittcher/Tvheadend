@@ -6,10 +6,11 @@ declare(strict_types=1);
 //Startdaten zusammen. Aussehen und Aufbau folgen standards/TILE_VISUALIZATION.md des Regelwerks.
 trait TvheadendTile
 {
-    //Ab Symcon 9.1 zeigt die Kachel ihr HTML auch im Vollbild, davor nur in der normalen Kachel.
+    //Ab Symcon 9.1 zeigt die Kachel ihr HTML auch im Vollbild, davor nur in der normalen Kachel. Die Konstanten für den
+    //Kachel-Typ gibt es erst ab 9.1, auf 9.0 fehlt auch INSTANCE_VISUALIZATION_TYPE_HTML, deshalb steht dafür der Wert 1.
     protected function EnableTile(): void
     {
-        $this->SetVisualizationType(defined('INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN') ? INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN : INSTANCE_VISUALIZATION_TYPE_HTML);
+        $this->SetVisualizationType(defined('INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN') ? INSTANCE_VISUALIZATION_TYPE_HTML_FULLSCREEN : 1);
     }
 
     //HTML der Kachel. Die module.html des Moduls definiert handleMessage(json), die Startdaten gehen am Ende mit.

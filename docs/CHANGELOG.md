@@ -1,5 +1,10 @@
 # Changelog
 
+## 19.10.2026 - Version 2.0.1
+
+### Fixes
+- Die Instanzen mit Kachel (Kanäle, DVR, Aufnahmeregeln, EPG, Streaming und Tuner) lassen sich unter Symcon 9.0 wieder anlegen, vorher brach das Anlegen mit "Undefined constant" ab.
+
 ## 12.10.2026 - Version 2.0
 
 ### Neu
