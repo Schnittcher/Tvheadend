@@ -217,7 +217,7 @@ class Tvheadend extends IPSModule
                     $this->shutdown();
                     $this->SetValue($Ident, false);
                 }
-                    break;
+                break;
         }
     }
 
