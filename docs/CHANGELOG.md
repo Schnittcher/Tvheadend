@@ -23,3 +23,60 @@
 - Kanalverwaltung: Kanäle nach Kanalnummer aktivieren, deaktivieren und umbenennen, im Formular, in einer Kachel und per Funktion.
 - Kacheln übernehmen Schrift, Größe, Ränder und Farben der Kachel-Visualisierung. Die maximierte Ansicht gibt es ab IP-Symcon 9.1.
 - Achtung: Die neuen Module sind eigenständig. Bestehende Instanzen des bisherigen Moduls laufen weiter, ein Umstieg bedeutet, neue Instanzen über Gateway und Konfigurator anzulegen. Ausschalten des Servers per SSH gibt es in den neuen Modulen nicht.
+
+## 27.08.2020 - Version 1.8.1
+
+### Fixes
+- Wenn Server offline ist, kommen keine Fehlermeldungen mehr.
+
+## 26.06.2019 - Version 1.8
+
+### Fixes
+- Beim Versuch den Server herunterzufahren, wenn er offline ist, gab es eine Fehlermeldung im Log.
+
+## 15.02.2019 - Version 1.7
+
+### Neu
+- Übersetzungen hinzugefügt
+
+## 07.02.2019 - Version 1.6
+
+### Fixes
+- module.json für IPS 5.1 angepasst
+
+## 27.08.2018 - Version 1.5
+
+### Neu
+- Wenn keine Aufnahme vorhanden sind, werden die Variablen geleert
+
+### Fixes
+- Bei Subscriptions wird nun geprüft ob die Array Keys vorhanden sind.
+
+## 27.08.2018 - Version 1.4
+
+### Neu
+- Variable hinzugefügt, ob eine Aufnahme aktiv ist oder nicht, eine Vorlaufzeit und Nachlaufzeit kann in den Einstellungen gesetzt werden.
+
+### Fixes
+- Fehler bei den Aufnahmen gefixt (subtitle wurde nicht gefunden)
+
+## 26.08.2018 - Version 1.3
+
+### Fixes
+- Username und Passwort für das Webinterface konnten nicht eingestellt werden.
+
+## 15.08.2018 - Version 1.2
+
+### Fixes
+- Konfigurationsformular JSON
+- Errors wenn keine User mit dem TVH Server verbunden sind
+
+## 31.07.2018 - Version 1.1
+
+### Neu
+- Anzahl der Subscriptions hinzugefügt
+
+## 31.07.2018 - Version 1.0
+
+### Neu
+- Erste Version
