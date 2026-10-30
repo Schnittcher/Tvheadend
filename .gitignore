@@ -4,6 +4,5 @@ libs/composer.*
 libs/phpunit.*
 docs/PLAN.md
 docs/FORUM_POST.md
-docs/FORUM_CHANGELOG.md
 docs/adr/
 docs/UEBERGABE.md
