@@ -4,6 +4,7 @@
 
 ### Fixes
 - Die Instanzen mit Kachel (Kanäle, DVR, Aufnahmeregeln, EPG, Streaming und Tuner) lassen sich unter Symcon 9.0 wieder anlegen, vorher brach das Anlegen mit "Undefined constant" ab.
+- Der Dokumentationslink der Instanzen führt jetzt zur Dokumentation auf deinsmarthome.info.
 
 ## 12.10.2026 - Version 2.0
 

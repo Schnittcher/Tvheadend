@@ -9,5 +9,6 @@
     "parentRequirements": [],
     "childRequirements": [],
     "implemented": [],
-    "prefix": "TVH"
+    "prefix": "TVH",
+    "url": "https://deinsmarthome.info/module/tvheadend/"
 }
